@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+:root {
+    --cor-fundo: #0D0208;
+    --cor-texto: #00FF41;
+    --cor-brilho: #00ff4180;
+    --cor-borda: #008F11;
+    --cor-fundo-card: #000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    font-family: 'VT323', monospace;
+    text-shadow: 0 0 5px var(--cor-brilho);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    padding: 24px;
+    text-align: center;
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+header h1 {
+    font-size: 3rem;
+    text-transform: uppercase;
+    animation: flicker 1.5s infinite alternate;
+}
+
+@keyframes flicker {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+        text-shadow:
+            0 0 4px var(--cor-texto),
+            0 0 11px var(--cor-texto),
+            0 0 19px var(--cor-texto),
+            0 0 40px var(--cor-brilho),
+            0 0 80px var(--cor-brilho),
+            0 0 90px var(--cor-brilho);
+    }
+    20%, 24%, 55% {
+        text-shadow: none;
+    }
+}
+
+header div {
+    margin-top: 16px;
+}
+
+input[type="text"], button {
+    background-color: transparent;
+    border: 1px solid var(--cor-borda);
+    color: var(--cor-texto);
+    padding: 8px;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+input[type="text"] {
+    width: 250px;
+}
+
+input[type="text"]::placeholder {
+    color: var(--cor-borda);
+}
+
+button {
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+button:hover {
+    background-color: var(--cor-borda);
+    box-shadow: 0 0 10px var(--cor-brilho);
+}
+
+main {
+    flex-grow: 1;
+    padding: 24px;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 16px;
+}
+
+.card-container article {
+    background-color: var(--cor-fundo-card);
+    border: 1px solid var(--cor-borda);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.footer {
+    border-top: 1px solid var(--cor-borda);
+    padding: 16px;
+    text-align: center;
+}
+
+.footer-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+.footer-links a {
+    color: var(--cor-texto);
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
